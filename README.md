@@ -1,4 +1,4 @@
-# WDD430 Group Project: Handcrafte Haven
+# WDD430 Group Project: Handcrafted Haven
 
 ### Team 07
 - Thiago Gouveia
