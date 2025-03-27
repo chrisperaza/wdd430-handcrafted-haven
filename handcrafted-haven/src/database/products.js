@@ -9,18 +9,13 @@ export const productsArray = [
     description:
       'Decorative fabrics with a variety of designs ranging from beautiful florals to colorful, modern patterns. You can use them to make tablecloths, small handkerchiefs, or even dresses of your choice.',
     price: 10.0,
-    rating: 4.5,
+    rating: 5,
     reviews: [
       {
         userNameReview: '_IamSusan',
         contentReview:
           'I loved them. They arrived on time and the fabric is very good.',
         ratingReview: 5,
-      },
-      {
-        userNameReview: 'jhonS',
-        contentReview: 'Very good.',
-        ratingReview: 4,
       },
     ],
   },
@@ -336,16 +331,556 @@ export const productsArray = [
     id: 20,
     image:
       'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943090/hellenabynes-cloth-bag-8_pxglyt.png',
-    productName: 'Fabric keychains with accessories',
+    productName: 'Fabric bags',
     category: 'fabrics',
     sellerUsername: 'hellenabynes',
-    description: `Beautiful soft-colored fabric keychains with a personalized accessory. This accessory can be a star, a butterfly, or any other accessory you can imagine.`,
-    price: 5.0,
+    description: `Fabric bags ideal for shopping. They're medium-sized, yet still sturdy and strong enough to support enough weight.`,
+    price: 8.7,
     rating: 4,
     reviews: [
       {
         userNameReview: '_IamSusan',
         contentReview: `I really liked it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 21,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943085/hellenabynes-fabric-tendrils-2_qt2yhn.webp',
+    productName: 'Fabric earrings',
+    category: 'fabrics',
+    sellerUsername: 'hellenabynes',
+    description: `Beautiful fabric earrings, made entirely from recyclable materials. They're especially lightweight, comfortable, and colorful. We offer a variety of colors to suit your taste.`,
+    price: 3.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: '_IamSusan',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 22,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943091/funny-masks-6-cloth-bag-7_cutffi.webp',
+    productName: 'Colorful fabric bags',
+    category: 'fabrics',
+    sellerUsername: 'funny-masks-6',
+    description: `Colorful fabric bags ideal for shopping. They're medium-sized, yet still sturdy and strong enough to support enough weight. We offer a variety of colors to suit your taste.`,
+    price: 9.5,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: '_IamSusan',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 23,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943070/funny-masks-6-artisanal-chocolate_m44tfu.webp',
+    productName: 'Box of artisanal chocolate',
+    category: 'chocolate',
+    sellerUsername: 'funny-masks-6',
+    description: `Delicious, handcrafted and totally elegant chocolates. Perfect for gifting to a friend, boyfriend, girlfriend, or maybe just eating them yourself.`,
+    price: 15.3,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 24,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943069/funny-masks-6-artisanal-chocolate-2_a00ntn.jpg',
+    productName: 'Artisanal chocolate',
+    category: 'chocolate',
+    sellerUsername: 'funny-masks-6',
+    description: `Delicious handcrafted chocolates. Perfect for gifting to a friend, boyfriend, girlfriend, or maybe just eating them yourself.`,
+    price: 10.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 25,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943064/funny-masks-6-handmade-paper-3_plorbs.jpg',
+    productName: 'Colorful handmade paper',
+    category: 'paper',
+    sellerUsername: 'funny-masks-6',
+    description: `Completely handmade paper. We have a variety of colors for whatever you need. They're durable, ideal for origami or even for use in any decoration or craft.`,
+    price: 8.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 26,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943042/jhonnyJ-wood-2_e7zgvr.webp',
+    productName: 'Wooden dog portrait',
+    category: 'woods',
+    sellerUsername: 'jhonnyJ',
+    description: `Beautiful dog portrait, made entirely of wood and handmade. Ideal for decorating your home or any other space. It's medium-sized and lightweight.`,
+    price: 18.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 27,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943047/torres1996-pillows_c01ccj.jpg',
+    productName: 'Personalized pillows',
+    category: 'pillows',
+    sellerUsername: 'torres1996',
+    description: `Beautiful personalized pillows featuring your favorite TV and movie characters. They're entirely handmade and sewn by hand. They're truly comfortable and ideal for decorating your furniture.`,
+    price: 23.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 28,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943046/torres1996-pillows-2_v2kunv.jpg',
+    productName: 'Woven pillows',
+    category: 'pillows',
+    sellerUsername: 'torres1996',
+    description: `Beautiful woven pillows entirely handmade and sewn by hand. They're truly comfortable and ideal for decorating your furniture.`,
+    price: 20.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 29,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943112/seaborngot-fabric-flower_fvn7wu.jpg',
+    productName: 'Rectangular woven flower',
+    category: 'knitting',
+    sellerUsername: 'seaborngot',
+    description: `Beautiful woven flowers made entirely by hand. Ideal for decorating your dinner table or any space in your home.`,
+    price: 5.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 30,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943052/seaborngot-maps_inlz3w.webp',
+    productName: 'Map to decorate',
+    category: 'maps',
+    sellerUsername: 'seaborngot',
+    description: `Beautiful map painting, drawn entirely freehand. Perfect for decorating your home and giving it an intellectual, country feel.`,
+    price: 19.9,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 31,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943051/seaborngot-maps-2_dlfpzl.webp',
+    productName: 'Map frame',
+    category: 'maps',
+    sellerUsername: 'seaborngot',
+    description: `Beautiful map frame, drawn entirely freehand. Perfect for decorating your home and giving it an intellectual, country feel.`,
+    price: 17.9,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 32,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943048/seaborngot-maps-3_ea9sb7.webp',
+    productName: 'Little maps',
+    category: 'maps',
+    sellerUsername: 'seaborngot',
+    description: `Beautiful little maps, drawn entirely freehand. Perfect for decorating your home and giving it an intellectual, country feel.`,
+    price: 14.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 33,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943064/justmark1687-handmade-shoes_dtyhga.jpg',
+    productName: 'Handmade artisan shoes',
+    category: 'shoes',
+    sellerUsername: 'justmark1687',
+    description: `Modern, handcrafted leather shoes. Designed with a modern shoe model. Ideal and durable for going out anywhere.`,
+    price: 25.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 34,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943063/justmark1687-handmade-shoes-2_alledu.jpg',
+    productName: 'Modern artisan shoes',
+    category: 'shoes',
+    sellerUsername: 'justmark1687',
+    description: `Modern, handcrafted leather shoes. Designed with a modern shoe model. Ideal and durable for going out anywhere.`,
+    price: 23.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 35,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943063/justmark1687-handmade-shoes-3_supnv3.jpg',
+    productName: 'Modern black artisan shoes',
+    category: 'shoes',
+    sellerUsername: 'justmark1687',
+    description: `Modern, handcrafted leather shoes. Designed with a modern shoe model. Ideal and durable for going out anywhere.`,
+    price: 26.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 36,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943043/justmark1687-table_cjge8p.jpg',
+    productName: 'Modern wooden table',
+    category: 'woods',
+    sellerUsername: 'justmark1687',
+    description: `Beautiful and modern wooden table, built entirely by hand. The table features completely modern designs and shapes to decorate your home or any space you desire. It's also durable enough.`,
+    price: 40.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 37,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943043/justmark1687-wood_sljdtm.jpg',
+    productName: 'Small wooden desk',
+    category: 'woods',
+    sellerUsername: 'justmark1687',
+    description: `Beautiful and modern wooden table, built entirely by hand. The table features completely modern designs and shapes to decorate your home or any space you desire. It's also durable enough.`,
+    price: 32.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 38,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943127/mostwanted-2005-colorful_ropes_qnfjwp.jpg',
+    productName: 'Colorful knitting ropes',
+    category: 'knitting',
+    sellerUsername: 'mostwanted-2005',
+    description: `Beautiful and colorful knitting ropes. Made entirely by hand and durable enough to create and design different types of crafts. We have a wide and extensive variety of colors.`,
+    price: 4.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 39,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943127/mostwanted-2005-handkerchiefs_aqq5kf.jpg',
+    productName: 'Colored handkerchiefs',
+    category: 'fabrics',
+    sellerUsername: 'mostwanted-2005',
+    description: `Beautiful and colorful handkerchiefs. Made entirely by hand and durable enough to create and design different types of crafts. We have a wide and extensive variety of colors.`,
+    price: 8.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 40,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943112/mostwanted-2005-fabric-flower-2_hli6cb.jpg',
+    productName: 'Woven circular flower',
+    category: 'knitting',
+    sellerUsername: 'mostwanted-2005',
+    description: `Beautiful woven flowers made entirely by hand. Ideal for decorating your dinner table or any space in your home.`,
+    price: 3.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 41,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943111/mostwanted-2005-fabric-flower-3_v56sas.jpg',
+    productName: 'Woven circular flower 2',
+    category: 'knitting',
+    sellerUsername: 'mostwanted-2005',
+    description: `Beautiful woven flowers made entirely by hand. Ideal for decorating your dinner table or any space in your home.`,
+    price: 3.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 42,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943068/mostwanted-2005-artisanal-chocolate-4_nxd0ii.png',
+    productName: 'Artisanal chocolate bars',
+    category: 'chocolate',
+    sellerUsername: 'mostwanted-2005',
+    description: `Delicious handcrafted chocolates. Perfect for gifting to a friend, boyfriend, girlfriend, or maybe just eating them yourself.`,
+    price: 15.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 43,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943121/anyany48-decorative-fabrics_srzyiy.jpg',
+    productName: 'Decorative fabrics (Blue)',
+    category: 'fabrics',
+    sellerUsername: 'anyany48',
+    description: `Decorative fabrics with a variety of designs ranging from beautiful florals to colorful, modern patterns. You can use them to make tablecloths, small handkerchiefs, or even dresses of your choice.`,
+    price: 10.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 44,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943120/anyany48-decorative-fabrics-2_hs6ajg.jpg',
+    productName: 'Decorative fabrics (Yellow)',
+    category: 'fabrics',
+    sellerUsername: 'anyany48',
+    description: `Decorative fabrics with a variety of designs ranging from beautiful florals to colorful, modern patterns. You can use them to make tablecloths, small handkerchiefs, or even dresses of your choice.`,
+    price: 10.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 45,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943112/matiassilva_55-fabric-flower-5_mr76ea.jpg',
+    productName: 'Woven circular white flower',
+    category: 'knitting',
+    sellerUsername: 'matiassilva_55',
+    description: `Decorative fabrics with a variety of designs ranging from beautiful florals to colorful, modern patterns. You can use them to make tablecloths, small handkerchiefs, or even dresses of your choice.`,
+    price: 4.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 46,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943105/matiassilva_55-fabric-flower-6_mwkhrc.webp',
+    productName: 'Double oven circular flower',
+    category: 'knitting',
+    sellerUsername: 'matiassilva_55',
+    description: `Decorative fabrics with a variety of designs ranging from beautiful florals to colorful, modern patterns. You can use them to make tablecloths, small handkerchiefs, or even dresses of your choice.`,
+    price: 6.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 47,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943057/matiassilva_55-painting-3_fbseil.webp',
+    productName: 'Flower painting',
+    category: 'painting',
+    sellerUsername: 'matiassilva_55',
+    description: `Beautiful hand-painted flower painting. Perfect for decorating your home or any space you wish. It's large, yet very comfortable and lightweight.`,
+    price: 42.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 48,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943121/mel_-silk-fans_rn4dcz.jpg',
+    productName: 'Fabric fan',
+    category: 'fabrics',
+    sellerUsername: 'mel_',
+    description: `Beautiful fabric fan. We have a wide variety of colors and sizes. Perfect for those hot days or simply to take with you on your summer trips or vacations. Ideal for any outfit.`,
+    price: 12.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 49,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943098/eddylover205-cloth-bag-3_beyd4i.jpg',
+    productName: 'Simple cloth bag',
+    category: 'fabrics',
+    sellerUsername: 'eddylover205',
+    description: `Simple, yet beautiful and useful, this fabric bag is completely handmade. Perfect for shopping. It's strong and durable enough. It's also spacious and modern.`,
+    price: 15.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
+        ratingReview: 4,
+      },
+    ],
+  },
+  {
+    id: 50,
+    image:
+      'https://res.cloudinary.com/dx29auvvm/image/upload/v1742943091/marques15-cloth-bag-5_xpl2cq.jpg',
+    productName: 'Simple cloth white bag',
+    category: 'fabrics',
+    sellerUsername: 'marques15',
+    description: `Simple, yet beautiful and useful, this fabric bag is completely handmade. Perfect for shopping. It's strong and durable enough. It's also spacious and modern.`,
+    price: 12.0,
+    rating: 4,
+    reviews: [
+      {
+        userNameReview: 'jhonS',
+        contentReview: `I really loved it.`,
         ratingReview: 4,
       },
     ],
