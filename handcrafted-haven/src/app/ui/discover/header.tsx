@@ -1,12 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import searchIcon from '@/../public/search.svg';
 
 export default function Header() {
   return (
     <header className='border-b border-[#D9D9D9] bg-[#fff] px-[5%] py-[15px] sticky top-0'>
       <div className='flex flex-row justify-between max-w-[1400px] mx-auto items-center gap-[5%]'>
-        <Link href={'/'} title='Home | Handcrafted Haven'>
+        <Link href={'/discover'} title='Discover'>
           <Image
             className='rounded-full w-fit h-fit hover:scale-[1.1]'
             src={
@@ -22,13 +21,13 @@ export default function Header() {
             Search
           </label>
           <input
-            className='bg-[#e5e5e5] pl-[55px] py-[10px] px-[20px] w-[100%] rounded-full placeholderColor-[#fff]'
+            className='bg-accent-4 pl-[55px] py-[10px] px-[20px] w-[100%] rounded-full placeholderColor-[#fff]'
             type='text'
             title='Search for some product'
             placeholder='Search for something'
           />
           <svg
-            className='absolute left-5 top-1/2 -translate-y-1/2 fill-[#1abc9c]'
+            className='absolute left-5 top-1/2 -translate-y-1/2 fill-primary'
             xmlns='http://www.w3.org/2000/svg'
             width='18'
             height='18'
@@ -40,11 +39,11 @@ export default function Header() {
         </div>
         <div className='hover:scale-[1.1]'>
           <Link
-            className='bg-[#10957a] py-[12px] px-[25px] rounded-[8px] text-[#fff] hover:bg-[#1abc9c] '
-            href={'/login'}
-            title='Login'
+            className='bg-tertiary py-[12px] px-[25px] rounded-[8px] text-[#fff] hover:bg-primary'
+            href={'/account'}
+            title='User account'
           >
-            Login
+            Account
           </Link>
         </div>
       </div>
