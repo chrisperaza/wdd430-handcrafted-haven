@@ -7,7 +7,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div>
       <Header />
-      <div className='px-[5%] py-[20px] flex flex-row max-w-[1400px]'>
+      <div className='px-[5%] py-[20px] flex flex-row max-w-[1400px] justify-between'>
         <SideNav />
         {children}
       </div>

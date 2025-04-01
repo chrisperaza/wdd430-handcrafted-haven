@@ -8,7 +8,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
   const id = parseInt(params.id);
 
   const product = productsArray.find((product) => product.id === id);
-  console.log(product);
+  // console.log(product);
   if (!product) {
     return <div>Product not found</div>;
   }
@@ -16,7 +16,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
   const seller = sellersArray.find(
     (seller) => seller.username === product.sellerUsername
   );
-  console.log(seller);
+  // console.log(seller);
   if (!seller) {
     return <div>Seller not found</div>;
   }

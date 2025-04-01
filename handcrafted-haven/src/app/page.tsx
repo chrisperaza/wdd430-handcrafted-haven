@@ -4,7 +4,7 @@ import HeroImage from '../../public/hero-image-hh.png';
 
 export default function Home() {
   return (
-    <div className='relative'>
+    <div className='relative font-poppins'>
       <header className='px-[5%] py-[15px] sticky top-0 z-1'>
         <div className='flex flex-row justify-between max-w-[1400px] mx-auto px-[5%] items-center gap-[5%]'>
           <div className='flex flex-row items-center gap-[10px]'>
@@ -17,7 +17,7 @@ export default function Home() {
               width={40}
               height={40}
             />
-            <h1>Hancrafted Haven</h1>
+            <h1 className='font-medium'>Hancrafted Haven</h1>
           </div>
           <div className='hover:scale-[1.1]'>
             <Link
@@ -32,9 +32,11 @@ export default function Home() {
       </header>
       <main className='px-[5%] pt-[70px] flex flex-row max-w-[1400px] mx-auto'>
         <section className='z-1 w-[60%] flex flex-col items-start'>
-          <h2 className='text-[30px]'>The largest craft community.</h2>
-          <p className='text-[100px] text-sm/26 mb-[60px] mt-[10px]'>
-            Share your creations
+          <h2 className='text-[25px]'>
+            The largest <span className='text-tertiary'>craft</span> community.
+          </h2>
+          <p className='text-[100px] text-sm/26 mb-[60px] my-[15px]'>
+            <span className='text-tertiary'>Share</span> your creations
           </p>
           <div className='hover:scale-[1.1]'>
             <Link
