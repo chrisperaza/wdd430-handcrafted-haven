@@ -18,10 +18,10 @@
   --color-accent-4: #e5e5e5;
   --color-accent-5: #d3d3d3;
   --color-accent-6: #f3f3f3;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-poppins: 'Poppins', sans-serif;
-  --font-inter: 'Inter', sans-serif;
+  --font-poppins: var(--font-poppins);
+  --font-inter: var(--font-inter);
+  --font-poppins-2: 'Poppins', sans-serif;
+  --font-inter-2: 'Inter', sans-serif;
   --font-unna: 'Unna', serif;
 }
 
