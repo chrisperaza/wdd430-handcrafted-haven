@@ -39,7 +39,7 @@ export default function ProductCard(
                             src={seller.image}
                             className="size-10 rounded-full ring-2 ring-white"
                         />
-                        {seller.fullname}
+                        {seller.username}
                     </p>
                 </div>
             </div>

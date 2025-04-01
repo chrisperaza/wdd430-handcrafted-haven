@@ -8,10 +8,10 @@ export default function CustomersReviews({
     }[];
 }) {
     return (
-        <div className="p-4 bg-white shadow-md rounded-md">
+        <div className="p-4 bg-white shadow-md rounded-md transform transition duration-300 ease-in-out hover:scale-105">
             <article>
                 {reviews?.map((review, index) => (
-                    <div key={index} className="mb-6">
+                    <div key={index} className="mb-6 ">
                         <div className="flex items-center mb-2">
                             <div className="ml-3">
                                 <p className="font-medium text-gray-900">{review.userNameReview}</p>

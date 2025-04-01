@@ -29,44 +29,49 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
     return (
         <>
 
-            <div className="lg:flex lg:items-center lg:justify-between mb-6">
-                <div className="min-w-0 flex-1">
-                    <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl sm:tracking-tight">
+            <div className="container mx-auto p-6">
+                {/* Header Section */}
+                <div className="text-center mb-6">
+                    <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
                         Discover | {product.productName}
                     </h2>
+                    <p className="text-gray-600 mt-2 text-lg">By {seller.fullname}</p>
                 </div>
-            </div>
 
-            <div className="grid grid-cols-2 gap-4">
-                {/* Product Card */}
-                <ProductCard product={product} seller={seller} />
+                {/* Content Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                    {/* Product Card Section with Zoom Effect */}
+                    <div className="flex justify-center">
+                        <div className="overflow-hidden rounded-xl shadow-md transform transition duration-300 ease-in-out hover:scale-105">
+                            <ProductCard product={product} seller={seller} />
+                        </div>
+                    </div>
 
-                {/* Right Column: Review Form & Reviews */}
-                <div className="flex flex-col gap-4">
-                    {/* Review Form */}
-                    <form className="p-4 bg-white shadow-md rounded-md">
-                        <h2 className="text-lg font-semibold text-gray-900">Write Your Review</h2>
-                        <div className="mt-2">
+                    {/* Right Column: Review Form & Reviews */}
+                    <div className="w-full max-w-lg mx-auto lg:mx-0">
+                        {/* Review Form */}
+                        <div className="bg-white p-6 shadow-lg rounded-xl transform transition duration-300 ease-in-out hover:scale-105">
+                            <h3 className="text-lg font-semibold text-gray-900 mb-4">Write Your Review</h3>
                             <textarea
                                 id="review"
                                 name="review"
-                                rows={3}
-                                className="block w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                                rows={4}
+                                className="block w-full rounded-md border border-gray-300 px-4 py-2 text-gray-900 focus:ring-2 focus:ring-indigo-600 focus:outline-none"
                                 placeholder="Share your experience..."
                             />
-                        </div>
-                        <div className="mt-3 flex justify-end">
                             <button
                                 type="submit"
-                                className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                                className="mt-4 w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2 rounded-md transition-all"
                             >
-                                Submit
+                                Submit Review
                             </button>
                         </div>
-                    </form>
 
-                    {/* Reviews Section */}
-                    <CustomersReviews reviews={reviews} />
+                        {/* Reviews Section */}
+                        <div className="mt-6">
+                            <CustomersReviews reviews={product.reviews} />
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
