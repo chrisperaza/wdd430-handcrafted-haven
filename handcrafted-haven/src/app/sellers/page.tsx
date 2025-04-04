@@ -1,6 +1,6 @@
 import { productsArray } from '@/database/products';
 import { sellersArray } from '@/database/sellers';
-// import ProductCard from '@/app/ui/products/card';
+import ProductCard from '@/app/ui/products/card';
 
 
 export default async function Page(props: { params: Promise<{ id: string }> }) {
@@ -20,11 +20,6 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
     if (!seller) {
       return <div>Seller not found</div>;
     }
-  
-    // const reviews = product.reviews;
-    // reviews.forEach(review => {
-  
-    // });
   
     return (
       <>
