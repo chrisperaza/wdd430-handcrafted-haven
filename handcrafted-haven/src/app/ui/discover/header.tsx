@@ -40,10 +40,10 @@ export default function Header() {
         <div className='hover:scale-[1.1]'>
           <Link
             className='bg-tertiary py-[12px] px-[25px] rounded-[8px] text-[#fff] hover:bg-primary'
-            href={'/account'}
+            href={'/sellers'}
             title='User account'
           >
-            Account
+            Seller Account
           </Link>
         </div>
       </div>

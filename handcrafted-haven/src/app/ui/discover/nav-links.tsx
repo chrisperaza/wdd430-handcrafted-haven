@@ -6,7 +6,7 @@ import clsx from 'clsx';
 
 const links = [
   { name: 'Discover', href: '/discover', title: 'Discover' },
-  { name: 'My workspace', href: '/account', title: 'User account' },
+  { name: 'My workspace', href: '/sellers', title: 'Seller account' },
 ];
 
 export default function NavLinks() {
