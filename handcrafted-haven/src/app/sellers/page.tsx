@@ -27,7 +27,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
           {/* Header Section */}
           <div className='text-center mb-6'>
             <h2 className='text-3xl font-bold text-gray-900 sm:text-4xl'>
-              Seller's Page | {seller.fullname}
+                {`Seller's Page | ${seller.fullname}`}
             </h2>
             <p className='text-gray-600 mt-2 text-lg'>By {seller.fullname}</p>
           </div>
