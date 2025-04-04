@@ -18,13 +18,16 @@ export default function NavLinks() {
         return (
           <li
             key={link.name}
-            className={clsx('bg-[#fff] hover:bg-accent-4 rounded-[10px]', {
-              'bg-tertiary hover:bg-primary': pathname === link.href,
-            })}
+            className={clsx(
+              'bg-background hover:bg-container-1 rounded-[10px]',
+              {
+                'bg-tertiary hover:bg-primary': pathname === link.href,
+              }
+            )}
           >
             <Link
               href={link.href}
-              className={clsx('text-[accent-2] flex py-[12px] px-[25px]', {
+              className={clsx('flex py-[12px] px-[25px]', {
                 'text-[#fff]': pathname === link.href,
               })}
               title={link.title}

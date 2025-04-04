@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <header className='border-b border-[#D9D9D9] bg-[#fff] px-[5%] py-[15px] sticky top-0 z-20 font-poppins'>
+    <header className='border-b border-border-1 bg-background px-[5%] py-[15px] sticky top-0 z-20 font-poppins'>
       <div className='flex flex-row justify-between max-w-[1400px] mx-auto items-center gap-[5%]'>
         <Link href={'/discover'} title='Discover'>
           <Image
@@ -21,7 +21,7 @@ export default function Header() {
             Search
           </label>
           <input
-            className='bg-accent-4 pl-[55px] py-[10px] px-[20px] w-[100%] rounded-full placeholderColor-[#fff]'
+            className='bg-container-1 pl-[55px] py-[10px] px-[20px] w-[100%] rounded-full placeholderColor-[#fff]'
             type='text'
             title='Search for some product'
             placeholder='Search for something'

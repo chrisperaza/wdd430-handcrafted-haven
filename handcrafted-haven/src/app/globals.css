@@ -4,20 +4,35 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #1abc9c;
+  --secondary: #2ecc71;
+  --tertiary: #10957a;
+  --accent-1: #9b59b6;
+  --accent-2: #34495e;
+  --accent-3: #3498db;
+  --container-1: #e5e5e5;
+  --container-2: #d3d3d3;
+  --title-1: #313131;
+  --title-2: #10957a;
+  --subtitle-1: #686868;
+  --border-1: #d9d9d9;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-primary: #1abc9c;
-  --color-secondary: #2ecc71;
-  --color-tertiary: #10957a;
-  --color-accent-1: #9b59b6;
-  --color-accent-2: #34495e;
-  --color-accent-3: #3498db;
-  --color-accent-4: #e5e5e5;
-  --color-accent-5: #d3d3d3;
-  --color-accent-6: #f3f3f3;
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
+  --color-accent-1: var(--accent-1);
+  --color-accent-2: var(--accent-2);
+  --color-accent-3: var(--accent-3);
+  --color-container-1: var(--container-1);
+  --color-container-2: var(--container-2);
+  --color-title-1: var(--title-1);
+  --color-title-2: var(--title-2);
+  --color-subtitle-1: var(--subtitle-1);
+  --color-border-1: var(--border-1);
   --font-poppins: var(--font-poppins);
   --font-inter: var(--font-inter);
   --font-poppins-2: 'Poppins', sans-serif;
@@ -25,10 +40,16 @@
   --font-unna: 'Unna', serif;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --container-1: #272727;
+    --container-2: #3f3f3f;
+    --title-1: #fff;
+    --title-2: #1abc9c;
+    --subtitle-1: #a5a5a5;
+    --border-1: #191919;
   }
 }
 
