@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <header className='border-b border-[#D9D9D9] bg-[#fff] px-[5%] py-[15px] sticky top-0'>
+    <header className='border-b border-[#D9D9D9] bg-[#fff] px-[5%] py-[15px] sticky top-0 z-20 font-poppins'>
       <div className='flex flex-row justify-between max-w-[1400px] mx-auto items-center gap-[5%]'>
         <Link href={'/discover'} title='Discover'>
           <Image
