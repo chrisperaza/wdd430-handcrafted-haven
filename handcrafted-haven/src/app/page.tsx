@@ -19,24 +19,15 @@ export default function Home() {
             />
             <h1 className='font-medium'>Hancrafted Haven</h1>
           </div>
-          <div className='hover:scale-[1.1]'>
-            <Link
-              className='bg-[#fff] border-solid border-[1px] border-primary py-[12px] px-[25px] rounded-[8px] text-tertiary'
-              href={'/login'}
-              title='Login'
-            >
-              Login
-            </Link>
-          </div>
         </div>
       </header>
       <main className='px-[5%] pt-[70px] flex flex-row max-w-[1400px] mx-auto'>
         <section className='z-1 w-[60%] flex flex-col items-start'>
           <h2 className='text-[25px]'>
-            The largest <span className='text-tertiary'>craft</span> community.
+            The largest <span className='text-title-2'>craft</span> community.
           </h2>
           <p className='text-[100px] text-sm/26 mb-[60px] my-[15px]'>
-            <span className='text-tertiary'>Share</span> your creations
+            <span className='text-title-2'>Share</span> your creations
           </p>
           <div className='hover:scale-[1.1]'>
             <Link
