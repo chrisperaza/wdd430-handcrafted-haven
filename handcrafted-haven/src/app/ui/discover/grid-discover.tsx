@@ -1,8 +1,14 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { productsArray } from '@/database/products';
+import { useSearchParams } from 'next/navigation';
 
-export default function GridDiscover({ query }: { query: string }) {
+export default function GridDiscover() {
+  const searchParams = useSearchParams();
+  const query = searchParams.get('query')?.toString() || '';
+
   const productsList = productsArray;
 
   const filteredProductsList = Array.isArray(productsList)

@@ -9,6 +9,7 @@ export default function SearchBar() {
 
   const handleSearch = (searchTerm: string) => {
     const params = new URLSearchParams(searchParams);
+
     if (searchTerm) {
       params.set('query', searchTerm);
     } else {
