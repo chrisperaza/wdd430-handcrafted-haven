@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import SearchBar from './search-bar';
+import { Suspense } from 'react';
 
 export default function Header() {
   return (
@@ -17,7 +18,9 @@ export default function Header() {
             height={40}
           />
         </Link>
-        <SearchBar />
+        <Suspense>
+          <SearchBar />
+        </Suspense>
         <div className='hover:scale-[1.1]'>
           <Link
             className='bg-tertiary py-[12px] px-[25px] rounded-[8px] text-[#fff] hover:bg-primary'

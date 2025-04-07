@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import GridDiscover from '../ui/discover/grid-discover';
 import Footer from '../ui/discover/footer';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'Discover',
@@ -13,7 +14,9 @@ export default function Page() {
         <h1 className='w-full text-4xl font-medium ml-[15px] my-[12px] font-poppins text-title-1'>
           Discover
         </h1>
-        <GridDiscover />
+        <Suspense>
+          <GridDiscover />
+        </Suspense>
       </section>
       <Footer />
     </main>
