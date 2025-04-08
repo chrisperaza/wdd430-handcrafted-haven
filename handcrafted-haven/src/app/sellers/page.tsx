@@ -1,12 +1,9 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
-import { productsArray } from '@/database/products';
 import SellerSearchBar from '../ui/sellers/searchBar';
 import Footer from '../ui/discover/footer';
 
 export const metadata: Metadata = {
-  title: 'Discover',
+  title: 'Sellers',
 };
 
 export default function Page() {
