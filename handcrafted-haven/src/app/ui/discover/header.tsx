@@ -11,7 +11,7 @@ export default function Header() {
           <Image
             className='rounded-full w-fit h-fit hover:scale-[1.1]'
             src={
-              'https://res.cloudinary.com/dx29auvvm/image/upload/v1743119474/logo-handcrafted-haven_asgcfu.png'
+              'https://res.cloudinary.com/dx29auvvm/image/upload/v1744250917/logo-handcrafted-haven-2_vcl0qj.png'
             }
             alt='Handcrafted Haven logo'
             width={40}
