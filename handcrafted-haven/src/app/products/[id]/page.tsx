@@ -2,34 +2,37 @@ import { productsArray } from '@/database/products';
 import { sellersArray } from '@/database/sellers';
 import CustomersReviews from '@/app/ui/products/reviews';
 import ProductCard from '@/app/ui/products/card';
-import { getProductById } from '@/app/lib/data';
+import { getProductById, getUserById, getProductReviews } from '@/app/lib/data';
 
 export default async function Page(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
-  const id = parseInt(params.id);
 
-  const product_db = await getProductById("dcddb3c8-fb43-4d00-b28b-751f7529cb29");
-  console.log("bellow the data");
-  console.log(product_db);
+  const product_db = await getProductById(params.id);
+  const seller_db = await getUserById(product_db.seller_id);
+  const reviews_db = await getProductReviews(product_db.id);
 
-  const product = productsArray.find((product) => product.id === id);
-  // console.log(product);
-  if (!product) {
-    return <div>Product not found</div>;
-  }
+  const seller_input = {
+    id: seller_db.id,
+    fullname: seller_db.name,
+    username: seller_db.username,
+    image: seller_db.avatar,
+  };
 
-  const seller = sellersArray.find(
-    (seller) => seller.username === product.sellerUsername
-  );
-  // console.log(seller);
-  if (!seller) {
-    return <div>Seller not found</div>;
-  }
+  const product_input = {
+    id: product_db.id,
+    productName: product_db.product_name,
+    description: product_db.description,
+    price: product_db.price,
+    image: product_db.image,
+    sellerUsername: seller_db.username,
+  };
 
-  // const reviews = product.reviews;
-  // reviews.forEach(review => {
+  const reviews_input = reviews_db.map((review) => ({
+    userNameReview: review.user.name,
+    contentReview: review.content,
+    ratingReview: review.rating,
+  }));
 
-  // });
 
   return (
     <>
@@ -37,9 +40,9 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
         {/* Header Section */}
         <div className='text-center mb-6'>
           <h2 className='text-3xl font-bold text-gray-900 sm:text-4xl'>
-            Discover | {product.productName}
+            Discover | {product_db.product_name}
           </h2>
-          <p className='text-gray-600 mt-2 text-lg'>By {seller.fullname}</p>
+          <p className='text-gray-600 mt-2 text-lg'>By {seller_db.name}</p>
         </div>
 
         {/* Content Grid */}
@@ -47,7 +50,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
           {/* Product Card Section with Zoom Effect */}
           <div className='flex justify-center'>
             <div className='overflow-hidden rounded-xl shadow-md transform transition duration-300 ease-in-out hover:scale-105'>
-              <ProductCard product={product} seller={seller} />
+              <ProductCard product={product_input} seller={seller_input} />
             </div>
           </div>
 
@@ -75,7 +78,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
 
             {/* Reviews Section */}
             <div className='mt-6'>
-              <CustomersReviews reviews={product.reviews} />
+              <CustomersReviews reviews={reviews_input} />
             </div>
           </div>
         </div>

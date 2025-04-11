@@ -74,7 +74,7 @@ export async function getProductReviews(productId: string) {
     const reviewsWithUser = await Promise.all(
       data.map(async (review) => {
         const user = await sql`
-          SELECT id, name, email, avatar FROM User
+          SELECT id, name, email, avatar FROM "User"
           WHERE id = ${review.user_id}
         `;
         return { ...review, user: user[0] };
@@ -91,7 +91,7 @@ export async function getProductReviews(productId: string) {
 export async function getUserById(id: string) {
   try {
     const data = await sql`
-      SELECT * FROM User
+      SELECT * FROM "User"
       WHERE id = ${id}
     `;
 
