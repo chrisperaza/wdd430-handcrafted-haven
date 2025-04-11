@@ -1,5 +1,5 @@
-import Header from '../../ui/discover/header';
-import SideNav from '../../ui/discover/sideNav';
+import Header from '../ui/discover/header';
+import SideNav from '../ui/discover/sideNav';
 
 
 export default function Layout({ children }: { children: React.ReactNode }) {
