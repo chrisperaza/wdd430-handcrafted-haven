@@ -66,20 +66,24 @@ export async function getProducts() {
 export async function getProductReviews(productId: string) {
   try {
     const data = await sql`
-      SELECT * FROM review
-      WHERE product_id = ${productId}
+      SELECT 
+        r.id, r.content, r.rating, r.product_id,
+        u.id AS user_id, u.name AS user_name, u.email AS user_email, u.avatar AS user_avatar
+      FROM review r
+      JOIN "User" u ON r.user_id = u.id
+      WHERE r.product_id = ${productId}
     `;
 
-    // Conciliate the reviews with the user
-    const reviewsWithUser = await Promise.all(
-      data.map(async (review) => {
-        const user = await sql`
-          SELECT id, name, email, avatar FROM "User"
-          WHERE id = ${review.user_id}
-        `;
-        return { ...review, user: user[0] };
-      }),
-    );
+    const reviewsWithUser = data.map((row) => ({
+      content: row.content,
+      rating: row.rating,
+      user: {
+        id: row.user_id,
+        name: row.user_name,
+        email: row.user_email,
+        avatar: row.user_avatar,
+      },
+    }));
 
     return reviewsWithUser;
   } catch (error) {
