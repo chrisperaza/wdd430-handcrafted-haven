@@ -2,10 +2,15 @@ import { productsArray } from '@/database/products';
 import { sellersArray } from '@/database/sellers';
 import CustomersReviews from '@/app/ui/products/reviews';
 import ProductCard from '@/app/ui/products/card';
+import { getProductById } from '@/app/lib/data';
 
 export default async function Page(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
   const id = parseInt(params.id);
+
+  const product_db = await getProductById("dcddb3c8-fb43-4d00-b28b-751f7529cb29");
+  console.log("bellow the data");
+  console.log(product_db);
 
   const product = productsArray.find((product) => product.id === id);
   // console.log(product);
