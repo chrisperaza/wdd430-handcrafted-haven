@@ -61,7 +61,7 @@ export default function Page() {
                                 />
                             </div>
                             <div className="text-sm text-center">
-                                Don't have an account?{' '}
+                                {`Don't have an account? `}
                                 <a
                                     href="/signup"
                                     className="text-blue-600 hover:underline"

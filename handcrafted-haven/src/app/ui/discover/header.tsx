@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import { checkAuth } from '@/app/lib/auth';
 
 export default function Header() {
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
   const [user, setUser] = useState<any>(null);
 
   useEffect(() => {
