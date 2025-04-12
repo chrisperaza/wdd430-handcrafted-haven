@@ -1,9 +1,26 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import SearchBar from './search-bar';
 import { Suspense } from 'react';
+import { useState, useEffect } from 'react';
+import { checkAuth } from '@/app/lib/auth';
 
 export default function Header() {
+  const [user, setUser] = useState<any>(null);
+
+  useEffect(() => {
+    async function checkUserAuth() {
+      const userData = await checkAuth();
+      if (userData) {
+        setUser(userData);
+      }
+    }
+
+    checkUserAuth();
+  }, []);
+
   return (
     <header className='border-b border-border-1 bg-background px-[5%] py-[15px] sticky top-0 z-20 font-poppins'>
       <div className='flex flex-row justify-between max-w-[1400px] mx-auto items-center gap-[5%]'>
@@ -22,13 +39,23 @@ export default function Header() {
           <SearchBar />
         </Suspense>
         <div className='hover:scale-[1.1]'>
-          <Link
-            className='bg-tertiary py-[12px] px-[25px] rounded-[8px] text-[#fff] hover:bg-primary'
-            href={'/account'}
-            title='User account'
-          >
-            Account
-          </Link>
+          {user ? (
+            <Link
+              className='bg-tertiary py-[12px] px-[25px] rounded-[8px] text-[#fff] hover:bg-primary'
+              href={'/user'}
+              title='User account'
+            >
+              {user.name}
+            </Link>
+          ) : (
+            <Link
+              className='bg-primary py-[12px] px-[25px] rounded-[8px] text-[#fff] hover:bg-tertiary'
+              href={'/login'}
+              title='Login'
+            >
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </header>
