@@ -6,12 +6,12 @@ export async function createUser(
   name: string,
   email: string,
   password: string,
-  avatar: string,
+  username: string,
 ) {
   try {
     const data = await sql`
-      INSERT INTO User (name, email, password, avatar)
-      VALUES (${name}, ${email}, ${password}, ${avatar})
+      INSERT INTO "User" (name, email, password, username, type)
+      VALUES (${name}, ${email}, ${password}, ${username}, 'customer')
       RETURNING *
     `;
 
@@ -25,11 +25,12 @@ export async function createUser(
 export async function loginUser(email: string, password: string) {
   try {
     const data = await sql`
-      SELECT * FROM User
+      SELECT id, name, email
+      FROM "User"
       WHERE email = ${email} AND password = ${password}
     `;
 
-    return data[0];
+    return data[0]; // Only return id, name, and email
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to login user.');
@@ -110,7 +111,7 @@ export async function getUserById(id: string) {
 export async function getUsers() {
   try {
     const data = await sql`
-      SELECT * FROM User
+      SELECT * FROM "User"
     `;
 
     return data;
