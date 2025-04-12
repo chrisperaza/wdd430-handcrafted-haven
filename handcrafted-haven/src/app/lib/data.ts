@@ -6,12 +6,12 @@ export async function createUser(
   name: string,
   email: string,
   password: string,
-  avatar: string,
+  username: string,
 ) {
   try {
     const data = await sql`
-      INSERT INTO User (name, email, password, avatar)
-      VALUES (${name}, ${email}, ${password}, ${avatar})
+      INSERT INTO "User" (name, email, password, username, type)
+      VALUES (${name}, ${email}, ${password}, ${username}, 'customer')
       RETURNING *
     `;
 
@@ -25,11 +25,12 @@ export async function createUser(
 export async function loginUser(email: string, password: string) {
   try {
     const data = await sql`
-      SELECT * FROM User
+      SELECT id, name, email
+      FROM "User"
       WHERE email = ${email} AND password = ${password}
     `;
 
-    return data[0];
+    return data[0]; // Only return id, name, and email
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to login user.');
@@ -66,20 +67,24 @@ export async function getProducts() {
 export async function getProductReviews(productId: string) {
   try {
     const data = await sql`
-      SELECT * FROM review
-      WHERE product_id = ${productId}
+      SELECT 
+        r.id, r.content, r.rating, r.product_id,
+        u.id AS user_id, u.name AS user_name, u.email AS user_email, u.avatar AS user_avatar
+      FROM review r
+      JOIN "User" u ON r.user_id = u.id
+      WHERE r.product_id = ${productId}
     `;
 
-    // Conciliate the reviews with the user
-    const reviewsWithUser = await Promise.all(
-      data.map(async (review) => {
-        const user = await sql`
-          SELECT id, name, email, avatar FROM User
-          WHERE id = ${review.user_id}
-        `;
-        return { ...review, user: user[0] };
-      }),
-    );
+    const reviewsWithUser = data.map((row) => ({
+      content: row.content,
+      rating: row.rating,
+      user: {
+        id: row.user_id,
+        name: row.user_name,
+        email: row.user_email,
+        avatar: row.user_avatar,
+      },
+    }));
 
     return reviewsWithUser;
   } catch (error) {
@@ -91,7 +96,7 @@ export async function getProductReviews(productId: string) {
 export async function getUserById(id: string) {
   try {
     const data = await sql`
-      SELECT * FROM User
+      SELECT * FROM "User"
       WHERE id = ${id}
     `;
 
@@ -106,7 +111,7 @@ export async function getUserById(id: string) {
 export async function getUsers() {
   try {
     const data = await sql`
-      SELECT * FROM User
+      SELECT * FROM "User"
     `;
 
     return data;
