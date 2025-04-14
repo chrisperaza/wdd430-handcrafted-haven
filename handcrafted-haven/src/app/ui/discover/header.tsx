@@ -5,11 +5,12 @@ import Link from 'next/link';
 import SearchBar from './search-bar';
 import { Suspense } from 'react';
 import { useState, useEffect } from 'react';
-import { checkAuth } from '@/app/lib/auth';
+import { checkAuth, logout } from '@/app/lib/auth';
+import { useRouter } from 'next/navigation';
 
 export default function Header() {
-  /* eslint-disable  @typescript-eslint/no-explicit-any */
   const [user, setUser] = useState<any>(null);
+  const router = useRouter();
 
   useEffect(() => {
     async function checkUserAuth() {
@@ -21,6 +22,12 @@ export default function Header() {
 
     checkUserAuth();
   }, []);
+
+  const handleLogout = async () => {
+    await logout();
+    setUser(null);
+    router.push('/login');
+  };
 
   return (
     <header className='border-b border-border-1 bg-background px-[5%] py-[15px] sticky top-0 z-20 font-poppins'>
@@ -36,23 +43,32 @@ export default function Header() {
             height={40}
           />
         </Link>
+
         <Suspense>
           <SearchBar />
         </Suspense>
-        <div className='hover:scale-[1.1]'>
+
+        <div className='flex items-center gap-4'>
           {user ? (
-            <Link
-              className='bg-tertiary py-[12px] px-[25px] rounded-[8px] text-[#fff] hover:bg-primary'
-              href={'/user'}
-              title='User account'
-            >
-              {user.name}
-            </Link>
+            <>
+              <Link
+                className='bg-tertiary py-[12px] px-[25px] rounded-[8px] text-[#fff] hover:bg-primary'
+                href={'/user'}
+                title='User account'
+              >
+                {user.name}
+              </Link>
+              <button
+                onClick={handleLogout}
+                className='bg-destructive py-[12px] px-[25px] rounded-[8px] text-[#fff] hover:bg-red-600'
+              >
+                Logout
+              </button>
+            </>
           ) : (
             <Link
-              className='bg-primary py-[12px] px-[25px] rounded-[8px] text-[#fff] hover:bg-tertiary'
-              href={'/login'}
-              title='Login'
+              className='bg-tertiary py-[12px] px-[25px] rounded-[8px] text-[#fff] hover:bg-primary'
+              href='/login'
             >
               Login
             </Link>

@@ -3,6 +3,10 @@ import { sellersArray } from '@/database/sellers';
 import ProductCard from '@/app/ui/sellers/card';
 import Image from 'next/image';
 
+
+// TODO: Use PostgreSQL to fetch data from the database
+// TODO: Show seller's story
+
 export default async function Page(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
   const id = parseInt(params.id);
