@@ -96,8 +96,8 @@ export async function getProductReviews(productId: string) {
 export async function getProductsbySeller(id: string) {
   try {
     const data = await sql`
-      SELECT * FROM product "User"
-      WHERE id= ${id}
+      SELECT * FROM product 
+      WHERE seller_id= ${id}
     `;
 
     const productsWithUser = data.map((row) => ({
