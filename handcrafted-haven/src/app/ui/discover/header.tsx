@@ -60,7 +60,7 @@ export default function Header() {
               </Link>
               <button
                 onClick={handleLogout}
-                className='bg-destructive py-[12px] px-[25px] rounded-[8px] text-[#fff] hover:bg-red-600'
+                className='bg-tertiary py-[12px] px-[25px] rounded-[8px] text-[#fff] hover:bg-primary'
               >
                 Logout
               </button>
