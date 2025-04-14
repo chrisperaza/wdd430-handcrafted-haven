@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import SellerSearchBar from '../ui/sellers/searchBar';
 import Footer from '../ui/discover/footer';
 
+
+// TODO: Maybe add a hero banner to fill black space (suggestion)
 export const metadata: Metadata = {
   title: 'Sellers',
 };

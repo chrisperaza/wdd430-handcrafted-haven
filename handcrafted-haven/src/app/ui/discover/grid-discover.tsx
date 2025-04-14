@@ -5,6 +5,10 @@ import Link from 'next/link';
 import { productsArray } from '@/database/products';
 import { useSearchParams } from 'next/navigation';
 
+
+// TODO: Use PostgreSQL to fetch data from the database
+// TODO: Filter by price and by seller or category
+
 export default function GridDiscover() {
   const searchParams = useSearchParams();
   const query = searchParams.get('query')?.toString() || '';
@@ -13,8 +17,8 @@ export default function GridDiscover() {
 
   const filteredProductsList = Array.isArray(productsList)
     ? productsList.filter((product) => {
-        return product.productName.toLowerCase().includes(query.toLowerCase());
-      })
+      return product.productName.toLowerCase().includes(query.toLowerCase());
+    })
     : [];
 
   return (
