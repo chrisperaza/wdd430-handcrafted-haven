@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export default async function Page(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
-  const {id} = await props.params
+ 
   const seller_db = await getUserById(params.id);
   
   
