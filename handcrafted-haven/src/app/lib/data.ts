@@ -93,15 +93,15 @@ export async function getProductReviews(productId: string) {
   }
 }
 
-export async function getProductsbySeller(id: string) {
+export async function getProductsbySeller(sellerId: string) {
   try {
     const data = await sql`
       SELECT * FROM "product"
-      WHERE seller_id = ${id}
+      WHERE seller_id = ${sellerId}
     `;
     console.log(data);
 
-    const productsWithUser = data.map((row) => ({
+    const productsWithSeller = data.map((row) => ({
       
         id: row.id,
         name: row.product_name,
@@ -110,8 +110,7 @@ export async function getProductsbySeller(id: string) {
         image: row.image,
         sellerUsername: row.username,
     }));
-    return productsWithUser;
-
+    return productsWithSeller
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch products.');

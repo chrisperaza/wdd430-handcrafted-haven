@@ -8,8 +8,6 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
  
   const seller_db = await getUserById(params.id);
-  
-  
 
   const seller = {
     id: seller_db.id,
@@ -17,6 +15,8 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
     username: seller_db.username,
     image: seller_db.avatar,
   };
+
+  console.log(seller.id);
 
   const products = await getProductsbySeller(seller.id);
   console.log("Raw fetched products:", products);
