@@ -93,6 +93,31 @@ export async function getProductReviews(productId: string) {
   }
 }
 
+export async function getProductsbySeller(id: string) {
+  try {
+    const data = await sql`
+      SELECT * FROM product "User"
+      WHERE id= ${id}
+    `;
+
+    const productsWithUser = data.map((row) => ({
+      
+        id: row.id,
+        name: row.product_name,
+        description: row.description,
+        price: row.price,
+        image: row.image,
+        sellerUsername: row.username,
+    }));
+    return productsWithUser;
+
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch products.');
+  }
+}
+
+
 export async function getUserById(id: string) {
   try {
     const data = await sql`
