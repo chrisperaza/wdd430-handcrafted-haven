@@ -9,6 +9,7 @@ import { checkAuth, logout } from '@/app/lib/auth';
 import { useRouter } from 'next/navigation';
 
 export default function Header() {
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
   const [user, setUser] = useState<any>(null);
   const router = useRouter();
 
