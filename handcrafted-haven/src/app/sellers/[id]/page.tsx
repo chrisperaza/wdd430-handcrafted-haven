@@ -14,9 +14,10 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
     fullname: seller_db.name,
     username: seller_db.username,
     image: seller_db.avatar,
+    story: seller_db.story,
   };
 
-  console.log(seller.id);
+  console.log("Raw seller:", seller);
 
   const products = await getProductsbySeller(seller.id);
   console.log("Raw fetched products:", products);
@@ -40,6 +41,9 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
               className=' rounded-full ring-2 ring-white'
             />{' '}
             By {seller.fullname}
+          </p>
+          <p className='text-gray-600 mt-2 text-lg flex items-center gap-2'>
+            {seller.story}
           </p>
         </div>
 
