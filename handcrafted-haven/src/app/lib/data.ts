@@ -93,6 +93,31 @@ export async function getProductReviews(productId: string) {
   }
 }
 
+export async function getProductsbySeller(sellerId: string) {
+  try {
+    const data = await sql`
+      SELECT * FROM "product"
+      WHERE seller_id = ${sellerId}
+    `;
+    console.log(data);
+
+    const productsWithSeller = data.map((row) => ({
+      
+        id: row.id,
+        name: row.product_name,
+        description: row.description,
+        price: row.price,
+        image: row.image,
+        sellerUsername: row.username,
+    }));
+    return productsWithSeller
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch products.');
+  }
+}
+
+
 export async function getUserById(id: string) {
   try {
     const data = await sql`
@@ -115,6 +140,20 @@ export async function getUsers() {
     `;
 
     return data;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch User.');
+  }
+}
+
+export async function getSellers() {
+  try {
+    const sellers = await sql`
+      SELECT id, fullname FROM "User"
+      WHERE type = seller
+    `;
+
+    return sellers;
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch User.');

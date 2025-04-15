@@ -1,5 +1,6 @@
-import { productsArray } from '@/database/products';
-import { sellersArray } from '@/database/sellers';
+// import { productsArray } from '@/database/products';
+// import { sellersArray } from '@/database/sellers';
+import { getProductsbySeller, getUserById} from '@/app/lib/data';
 import ProductCard from '@/app/ui/sellers/card';
 import Image from 'next/image';
 
@@ -9,21 +10,31 @@ import Image from 'next/image';
 
 export default async function Page(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
-  const id = parseInt(params.id);
+ 
+  const seller_db = await getUserById(params.id);
 
-  const seller = sellersArray.find((seller) => seller.id === id);
-  console.log(seller);
-  if (!seller) {
-    return <div>Product not found</div>;
-  }
+  const seller = {
+    id: seller_db.id,
+    fullname: seller_db.name,
+    username: seller_db.username,
+    image: seller_db.avatar,
+    story: seller_db.story,
+  };
 
-  const products = productsArray.filter(
-    (product) => product.sellerUsername === seller.username
-  );
-  console.log(seller);
-  if (!seller) {
-    return <div>Seller not found</div>;
-  }
+  console.log("Raw seller:", seller);
+
+  const productsRaw = await getProductsbySeller(seller.id);
+  console.log("Raw fetched products:", productsRaw);
+
+  const products = productsRaw.map(product =>({id: product.id,
+  productName: product.name,
+  description: product.description,
+  price: product.price,
+  image: product.image,
+  sellerUsername: seller_db.username,
+}))
+ 
+  
 
   return (
     <>
@@ -42,6 +53,9 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
               className=' rounded-full ring-2 ring-white'
             />{' '}
             By {seller.fullname}
+          </p>
+          <p className='text-gray-600 mt-2 text-lg flex items-center gap-2'>
+            {seller.story}
           </p>
         </div>
 
