@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { sellersArray } from '@/database/sellers';
 
+
 export default function SellerSearchBar() {
   const [query, setQuery] = useState('');
   const router = useRouter();

@@ -146,6 +146,20 @@ export async function getUsers() {
   }
 }
 
+export async function getSellers() {
+  try {
+    const sellers = await sql`
+      SELECT id, fullname FROM "User"
+      WHERE type = seller
+    `;
+
+    return sellers;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch User.');
+  }
+}
+
 export async function getProductsByCategory(category: string) {
   try {
     const data = await sql`
