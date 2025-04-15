@@ -1,6 +1,6 @@
 // import { productsArray } from '@/database/products';
 // import { sellersArray } from '@/database/sellers';
-import { getProductsbySeller, getUserById, getProducts} from '@/app/lib/data';
+import { getProductsbySeller, getUserById} from '@/app/lib/data';
 import ProductCard from '@/app/ui/sellers/card';
 import Image from 'next/image';
 
@@ -19,8 +19,16 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
 
   console.log("Raw seller:", seller);
 
-  const products = await getProductsbySeller(seller.id);
-  console.log("Raw fetched products:", products);
+  const productsRaw = await getProductsbySeller(seller.id);
+  console.log("Raw fetched products:", productsRaw);
+
+  const products = productsRaw.map(product =>({id: product.id,
+  productName: product.name,
+  description: product.description,
+  price: product.price,
+  image: product.image,
+  sellerUsername: seller_db.username,
+}))
  
   
 
