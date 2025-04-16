@@ -1,3 +1,5 @@
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+
 import postgres from 'postgres';
 import { Seller, Review } from '@/app/lib/types';
 
@@ -7,7 +9,7 @@ export async function createUser(
   name: string,
   email: string,
   password: string,
-  username: string,
+  username: string
 ) {
   try {
     const data = await sql`
@@ -31,7 +33,7 @@ export async function loginUser(email: string, password: string) {
       WHERE email = ${email} AND password = ${password}
     `;
 
-    return data[0]; 
+    return data[0];
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to login user.');
@@ -68,7 +70,6 @@ export async function getProducts() {
       category: row.category,
     }));
     return products;
-    
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch products.');
@@ -90,10 +91,10 @@ export async function getProductReviews(productId: string) {
       content: row.content,
       rating: row.rating,
       user: {
-      id: row.user_id,
-      name: row.user_name,
-      email: row.user_email,
-      avatar: row.user_avatar,
+        id: row.user_id,
+        name: row.user_name,
+        email: row.user_email,
+        avatar: row.user_avatar,
       },
     }));
 
@@ -111,21 +112,19 @@ export async function getProductsbySeller(sellerId: string) {
       WHERE seller_id = ${sellerId}
     `;
     const productsWithSeller = data.map((row) => ({
-      
-        id: row.id,
-        name: row.product_name,
-        description: row.description,
-        price: row.price,
-        image: row.image,
-        sellerUsername: row.username,
+      id: row.id,
+      name: row.product_name,
+      description: row.description,
+      price: row.price,
+      image: row.image,
+      sellerUsername: row.username,
     }));
-    return productsWithSeller
+    return productsWithSeller;
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch products.');
   }
 }
-
 
 export async function getUserById(id: string) {
   try {
@@ -135,13 +134,11 @@ export async function getUserById(id: string) {
     `;
 
     return data[0];
-  }
-  catch (error) {
+  } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch user.');
   }
 }
-
 
 export async function getSellers(): Promise<Seller[]> {
   try {
@@ -151,7 +148,6 @@ export async function getSellers(): Promise<Seller[]> {
       
     `;
     return sellers;
-
   } catch (error: any) {
     console.error('Database Error:', error?.message || error);
     throw new Error('Failed to fetch sellers.');
@@ -171,12 +167,11 @@ export async function getProductsByCategory(category: string) {
   }
 }
 
-
 export async function createReview(
   productId: string,
   userId: string,
   rating: number,
-  content: string,
+  content: string
 ) {
   try {
     const data = await sql`
@@ -191,4 +186,3 @@ export async function createReview(
     throw new Error('Failed to create review.');
   }
 }
-
