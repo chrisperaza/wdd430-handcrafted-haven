@@ -27,7 +27,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
   description: product.description,
   price: product.price,
   image: product.image,
-  sellerUsername: seller_db.username,
+  sellerUsername: seller.username,
 }))
  
   

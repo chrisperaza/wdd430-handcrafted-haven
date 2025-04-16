@@ -149,9 +149,11 @@ export async function getUsers() {
 export async function getSellers() {
   try {
     const sellers = await sql`
-      SELECT id, fullname FROM "User"
-      WHERE type = seller
+      SELECT id, name FROM User
+      WHERE type = 'seller'
     `;
+
+    console.log(sellers);
 
     return sellers;
   } catch (error) {

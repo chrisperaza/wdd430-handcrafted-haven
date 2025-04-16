@@ -1,15 +1,18 @@
 'use client';
-
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { sellersArray } from '@/database/sellers';
 
+type Seller = {
+  id: number;
+  fullname: string;
+};
 
-export default function SellerSearchBar() {
+export default function SellerSearchBar({ initialSellers }: { initialSellers: Seller[] }) {
   const [query, setQuery] = useState('');
+  const [sellers] = useState(initialSellers);
   const router = useRouter();
 
-  const filteredSellers = sellersArray.filter((seller) =>
+  const filteredSellers = sellers.filter((seller) =>
     seller.fullname.toLowerCase().includes(query.toLowerCase())
   );
 
