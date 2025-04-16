@@ -1,22 +1,25 @@
-'use client';
+// 'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { productsArray } from '@/database/products';
-import { useSearchParams } from 'next/navigation';
+// import { productsArray } from '@/database/products';
+// import { useSearchParams } from 'next/navigation';
+import { getProducts } from '@/app/lib/data';
 
 // TODO: Use PostgreSQL to fetch data from the database
 // TODO: Filter by price and by seller or category
 
-export default function GridDiscover() {
-  const searchParams = useSearchParams();
-  const query = searchParams.get('query')?.toString() || '';
+export default async function GridDiscover2({ query }: { query: string }) {
+  //   const searchParams = useSearchParams();
+  //   const query = searchParams.get('query')?.toString() || '';
 
-  const productsList = productsArray;
+  const productsList = await getProducts();
+
+  //   const productsDb = await getProducts();
 
   const filteredProductsList = Array.isArray(productsList)
     ? productsList.filter((product) => {
-        return product.productName.toLowerCase().includes(query.toLowerCase());
+        return product.product_name.toLowerCase().includes(query.toLowerCase());
       })
     : [];
 
@@ -54,7 +57,7 @@ export default function GridDiscover() {
                 <Image
                   className='rounded-[10px] mb-[5px]'
                   src={currentProductObj.image}
-                  alt={`${currentProductObj.productName} image`}
+                  alt={`${currentProductObj.product_name} image`}
                   width={0}
                   height={0}
                   sizes='100vw'
@@ -62,7 +65,7 @@ export default function GridDiscover() {
                 />
                 <div className='font-poppins flex flex-col gap-[5px]'>
                   <h2 className='text-base font-normal text-title-1'>
-                    {currentProductObj.productName}
+                    {currentProductObj.product_name}
                   </h2>
                   <p className='text-sm font-normal text-subtitle-1'>{`$${currentProductObj.price}`}</p>
                 </div>

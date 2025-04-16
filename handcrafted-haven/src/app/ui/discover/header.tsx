@@ -57,11 +57,12 @@ export default function Header() {
                 href={'/user'}
                 title='User account'
               >
-                {user.name}
+                {/* {user.name} */}
+                Account
               </Link>
               <button
                 onClick={handleLogout}
-                className='bg-tertiary py-[12px] px-[25px] rounded-[8px] text-[#fff] hover:bg-primary'
+                className='py-[12px] px-[25px] rounded-[8px] text-[#fff] hover:cursor-pointer hover:bg-container-1'
               >
                 Logout
               </button>

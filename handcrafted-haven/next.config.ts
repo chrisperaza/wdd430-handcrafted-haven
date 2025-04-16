@@ -9,6 +9,18 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve = {
+        ...config.resolve,
+        fallback: {
+          fs: false,
+          perf_hooks: false,
+        },
+      };
+    }
+    return config;
+  },
 };
 
 export default nextConfig;

@@ -1,13 +1,18 @@
-import { Metadata } from 'next';
-import GridDiscover from '../ui/discover/grid-discover';
+'use client';
+
+// import { Metadata } from 'next';
+import GridDiscover2 from '../ui/discover/grid-discover2';
 import Footer from '../ui/discover/footer';
 import { Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 
-export const metadata: Metadata = {
-  title: 'Discover',
-};
+// export const metadata: Metadata = {
+//   title: 'Discover',
+// };
 
 export default function Page() {
+  const searchParams = useSearchParams();
+  const query = searchParams.get('query')?.toString() || '';
   return (
     <main className='w-[75%] z-10'>
       <section className='w-full flex flex-col content-center gap-[5px]'>
@@ -15,7 +20,7 @@ export default function Page() {
           Discover
         </h1>
         <Suspense>
-          <GridDiscover />
+          <GridDiscover2 query={query} />
         </Suspense>
       </section>
       <Footer />
