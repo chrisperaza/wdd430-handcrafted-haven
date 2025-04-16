@@ -2,12 +2,16 @@ import { Metadata } from 'next';
 import GridDiscover from '../ui/discover/grid-discover';
 import Footer from '../ui/discover/footer';
 import { Suspense } from 'react';
+import { getProducts } from '../lib/data';
 
 export const metadata: Metadata = {
   title: 'Discover',
 };
 
-export default function Page() {
+export default async function Page() {
+
+  const products = await getProducts();
+
   return (
     <main className='w-[75%] z-10'>
       <section className='w-full flex flex-col content-center gap-[5px]'>
@@ -15,7 +19,7 @@ export default function Page() {
           Discover
         </h1>
         <Suspense>
-          <GridDiscover />
+          <GridDiscover productsArray={products} />
         </Suspense>
       </section>
       <Footer />

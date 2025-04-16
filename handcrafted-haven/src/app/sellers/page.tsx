@@ -1,6 +1,6 @@
 import { getSellers } from '@/app/lib/data';
 import SearchBar from '@/app/ui/sellers/searchBar';
-import { Seller } from '@/app/ui/sellers/types';
+import { Seller } from '@/app/lib/types';
 import { Metadata } from 'next';
 
 
