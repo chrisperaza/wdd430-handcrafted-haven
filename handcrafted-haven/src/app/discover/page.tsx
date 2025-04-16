@@ -3,7 +3,7 @@
 import { Metadata } from 'next';
 import GridDiscover2 from '../ui/discover/grid-discover2';
 import Footer from '../ui/discover/footer';
-// import { Suspense } from 'react';
+import { Suspense } from 'react';
 // import { useSearchParams } from 'next/navigation';
 
 export const metadata: Metadata = {
@@ -19,7 +19,9 @@ export default function Page() {
         <h1 className='w-full text-4xl font-medium ml-[15px] my-[12px] font-poppins text-title-1'>
           Discover
         </h1>
-        <GridDiscover2 />
+        <Suspense>
+          <GridDiscover2 />
+        </Suspense>
       </section>
       <Footer />
     </main>
