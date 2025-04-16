@@ -1,17 +1,19 @@
-// 'use client';
+/* eslint-disable react-hooks/rules-of-hooks */
+'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
 // import { productsArray } from '@/database/products';
-// import { useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { getProducts } from '@/app/lib/data';
 
 // TODO: Use PostgreSQL to fetch data from the database
 // TODO: Filter by price and by seller or category
 
-export default async function GridDiscover2({ query }: { query: string }) {
-  //   const searchParams = useSearchParams();
-  //   const query = searchParams.get('query')?.toString() || '';
+// eslint-disable-next-line @next/next/no-async-client-component
+export default async function GridDiscover2() {
+  const searchParams = useSearchParams();
+  const query = searchParams.get('query')?.toString() || '';
 
   const productsList = await getProducts();
 
