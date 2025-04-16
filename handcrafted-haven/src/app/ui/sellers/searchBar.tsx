@@ -1,16 +1,16 @@
 'use client';
-
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { sellersArray } from '@/database/sellers';
+import { Seller } from '@/app/ui/sellers/types';
 
 
-export default function SellerSearchBar() {
+export default function SellerSearchBar({ initialSellers }: { initialSellers: Seller[] }) {
   const [query, setQuery] = useState('');
+  const [sellers] = useState(initialSellers);
   const router = useRouter();
 
-  const filteredSellers = sellersArray.filter((seller) =>
-    seller.fullname.toLowerCase().includes(query.toLowerCase())
+  const filteredSellers = sellers.filter((seller) =>
+    seller.name.toLowerCase().includes(query.toLowerCase())
   );
 
   const handleSelect = (id: number) => {
@@ -38,7 +38,8 @@ export default function SellerSearchBar() {
               onClick={() => handleSelect(seller.id)}
               className="px-4 py-2 hover:bg-indigo-50 cursor-pointer"
             >
-              {seller.fullname}
+              
+              {seller.name}
             </li>
           ))}
         </ul>

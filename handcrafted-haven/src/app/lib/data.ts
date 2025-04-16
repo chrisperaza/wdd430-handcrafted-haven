@@ -1,4 +1,5 @@
 import postgres from 'postgres';
+import { Seller } from '@/app/ui/sellers/types';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
@@ -146,20 +147,22 @@ export async function getUsers() {
   }
 }
 
-export async function getSellers() {
+export async function getSellers(): Promise<Seller[]> {
   try {
-    const sellers = await sql`
-      SELECT id, fullname FROM "User"
-      WHERE type = seller
+    const sellers = await sql<Seller[]>`
+      SELECT * FROM public."User"
+      WHERE type ='seller'
+      
     `;
+    console.log('Sellers from DB:', sellers);
 
     return sellers;
-  } catch (error) {
-    console.error('Database Error:', error);
-    throw new Error('Failed to fetch User.');
+
+  } catch (error: any) {
+    console.error('Database Error:', error?.message || error);
+    throw new Error('Failed to fetch sellers.');
   }
 }
-
 export async function getProductsByCategory(category: string) {
   try {
     const data = await sql`

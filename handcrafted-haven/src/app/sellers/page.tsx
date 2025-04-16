@@ -1,6 +1,8 @@
+import { getSellers } from '@/app/lib/data';
+import SearchBar from '@/app/ui/sellers/searchBar';
+import { Seller } from '@/app/ui/sellers/types';
 import { Metadata } from 'next';
-import SellerSearchBar from '../ui/sellers/searchBar';
-import Footer from '../ui/discover/footer';
+
 
 
 // TODO: Maybe add a hero banner to fill black space (suggestion)
@@ -8,17 +10,8 @@ export const metadata: Metadata = {
   title: 'Sellers',
 };
 
-export default function Page() {
-  return (
-    <main className='w-[75%] z-10'>
-      <section className='w-full flex flex-col content-center gap-[5px]'>
-        <h1 className='w-full text-4xl font-medium ml-[15px] my-[12px] font-poppins text text-[#313131]'>
-          Sellers
-        </h1>
-        <SellerSearchBar />
+export default async function Page() {
+  const sellers = await getSellers();
 
-      </section>
-      <Footer />
-    </main>
-  );
+  return <SearchBar initialSellers={sellers} />;
 }
