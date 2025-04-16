@@ -19,9 +19,7 @@ export default function Page() {
         <h1 className='w-full text-4xl font-medium ml-[15px] my-[12px] font-poppins text-title-1'>
           Discover
         </h1>
-        <Suspense>
-          <GridDiscover2 />
-        </Suspense>
+        <GridDiscover2 />
       </section>
       <Footer />
     </main>
