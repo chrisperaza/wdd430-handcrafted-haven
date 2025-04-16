@@ -38,6 +38,7 @@ export default function SellerSearchBar({ initialSellers }: { initialSellers: Se
               onClick={() => handleSelect(seller.id)}
               className="px-4 py-2 hover:bg-indigo-50 cursor-pointer"
             >
+              
               {seller.name}
             </li>
           ))}

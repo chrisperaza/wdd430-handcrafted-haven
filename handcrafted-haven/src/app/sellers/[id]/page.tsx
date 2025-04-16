@@ -17,10 +17,10 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
     story: seller_db.story,
   };
 
-  console.log("Raw seller:", seller);
+  // console.log("Raw seller:", seller);
 
   const productsRaw = await getProductsbySeller(seller.id);
-  console.log("Raw fetched products:", productsRaw);
+  // console.log("Raw fetched products:", productsRaw);
 
   const products = productsRaw.map(product =>({id: product.id,
   productName: product.name,
