@@ -3,7 +3,7 @@
 import { Metadata } from 'next';
 import GridDiscover2 from '../ui/discover/grid-discover2';
 import Footer from '../ui/discover/footer';
-import { Suspense } from 'react';
+// import { Suspense } from 'react';
 // import { useSearchParams } from 'next/navigation';
 
 export const metadata: Metadata = {
