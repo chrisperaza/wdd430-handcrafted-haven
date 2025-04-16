@@ -1,5 +1,5 @@
 import postgres from 'postgres';
-import { Seller } from '@/app/ui/sellers/types';
+import { Seller, Review } from '@/app/lib/types';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
@@ -31,7 +31,7 @@ export async function loginUser(email: string, password: string) {
       WHERE email = ${email} AND password = ${password}
     `;
 
-    return data[0]; // Only return id, name, and email
+    return data[0]; 
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to login user.');
@@ -58,7 +58,17 @@ export async function getProducts() {
       SELECT * FROM product
     `;
 
-    return data;
+    const products = data.map((row) => ({
+      id: row.id,
+      product_name: row.product_name,
+      description: row.description,
+      price: row.price,
+      image: row.image,
+      seller_id: row.seller_id,
+      category: row.category,
+    }));
+    return products;
+    
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch products.');
@@ -76,14 +86,14 @@ export async function getProductReviews(productId: string) {
       WHERE r.product_id = ${productId}
     `;
 
-    const reviewsWithUser = data.map((row) => ({
+    const reviewsWithUser: Review[] = data.map((row) => ({
       content: row.content,
       rating: row.rating,
       user: {
-        id: row.user_id,
-        name: row.user_name,
-        email: row.user_email,
-        avatar: row.user_avatar,
+      id: row.user_id,
+      name: row.user_name,
+      email: row.user_email,
+      avatar: row.user_avatar,
       },
     }));
 
@@ -100,8 +110,6 @@ export async function getProductsbySeller(sellerId: string) {
       SELECT * FROM "product"
       WHERE seller_id = ${sellerId}
     `;
-    console.log(data);
-
     const productsWithSeller = data.map((row) => ({
       
         id: row.id,
@@ -134,18 +142,6 @@ export async function getUserById(id: string) {
   }
 }
 
-export async function getUsers() {
-  try {
-    const data = await sql`
-      SELECT * FROM "User"
-    `;
-
-    return data;
-  } catch (error) {
-    console.error('Database Error:', error);
-    throw new Error('Failed to fetch User.');
-  }
-}
 
 export async function getSellers(): Promise<Seller[]> {
   try {
@@ -154,8 +150,6 @@ export async function getSellers(): Promise<Seller[]> {
       WHERE type ='seller'
       
     `;
-    console.log('Sellers from DB:', sellers);
-
     return sellers;
 
   } catch (error: any) {
